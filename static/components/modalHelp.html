@@ -1,0 +1,150 @@
+<!-- Help Modal -->
+<div class="modal fade" id="modalHelp" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-white">
+                <h5 class="modal-title" id="helpModalLabel">Form and Variable Descriptions</h5>
+                <button type="button" id="closeModal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Explanation of buttons -->
+                <section>
+                    <h6><strong>Form Buttons:</strong></h6>
+                    <ul>
+                        <li>
+                            <strong>Submit:</strong> Use this button to submit the form after filling out all the required fields. Ensure all the information is correct and complete before clicking.
+                        </li>
+                        <li>
+                            <strong>Fill Fields:</strong> This button automatically populates the form with default or sample values. It is particularly useful for testing or learning purposes.
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Explanation of the variable table -->
+                <section class="mt-3">
+                    <h6><strong>Variable Descriptions:</strong></h6>
+                    <p>The table below provides detailed information about each variable in the form, including its description, type, and possible values.</p>
+                    <p class="text-info">
+                        <i class="fas fa-info-circle"></i> If you are using a mobile device, you can scroll horizontally through the table by swiping with your finger.
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Variable</th>
+                                    <th>Description</th>
+                                    <th>Type</th>
+                                    <th>Possible Values</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>age</strong></td>
+                                    <td>The person's age.</td>
+                                    <td>Numeric</td>
+                                    <td>18-120 years</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>job</strong></td>
+                                    <td>The type of occupation (e.g., technician, admin, etc.)</td>
+                                    <td>Categorical</td>
+                                    <td>"technician", "admin", "services", etc.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>marital</strong></td>
+                                    <td>The person's marital status.</td>
+                                    <td>Categorical</td>
+                                    <td>"single", "married", "divorced"</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>education</strong></td>
+                                    <td>The person's education level.</td>
+                                    <td>Categorical</td>
+                                    <td>"primary", "secondary", "tertiary"</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>default</strong></td>
+                                    <td>History of payment defaults.</td>
+                                    <td>Categorical</td>
+                                    <td>"yes", "no"</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>balance</strong></td>
+                                    <td>The person's bank balance.</td>
+                                    <td>Numeric</td>
+                                    <td>Numeric value</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>housing</strong></td>
+                                    <td>Whether the person has a mortgage.</td>
+                                    <td>Categorical</td>
+                                    <td>"yes", "no"</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>loan</strong></td>
+                                    <td>Whether the person has a personal loan.</td>
+                                    <td>Categorical</td>
+                                    <td>"yes", "no"</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>contact</strong></td>
+                                    <td>The type of contact used for reaching the person.</td>
+                                    <td>Categorical</td>
+                                    <td>"cellular", "telephone"</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>day</strong></td>
+                                    <td>The day of the month the last contact occurred.</td>
+                                    <td>Numeric</td>
+                                    <td>1-31</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>month</strong></td>
+                                    <td>The month of the last contact.</td>
+                                    <td>Categorical</td>
+                                    <td>"jan", "feb", "mar", etc.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>duration</strong></td>
+                                    <td>Duration of the call in seconds.</td>
+                                    <td>Numeric</td>
+                                    <td>Numeric value</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>campaign</strong></td>
+                                    <td>Number of contacts made during the campaign.</td>
+                                    <td>Numeric</td>
+                                    <td>Numeric value</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>pdays</strong></td>
+                                    <td>Days since the last contact.</td>
+                                    <td>Numeric</td>
+                                    <td>-1 means no previous contact</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>previous</strong></td>
+                                    <td>Number of previous contacts before this campaign.</td>
+                                    <td>Numeric</td>
+                                    <td>Numeric value</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>poutcome</strong></td>
+                                    <td>Outcome of the previous campaign.</td>
+                                    <td>Categorical</td>
+                                    <td>"success", "failure", "nonexistent"</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>deposit</strong></td>
+                                    <td>Target variable: whether a person subscribed to a term deposit.</td>
+                                    <td>Categorical</td>
+                                    <td>"yes", "no"</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

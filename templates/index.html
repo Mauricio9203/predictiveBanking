@@ -1,0 +1,74 @@
+{% extends './base.html' %}
+
+{% block title %} Index {% endblock %}
+
+{% block body %}
+
+<div class="container text-center" id="welcomePage" style="margin-top: 50px;">
+
+    <!-- Main Header -->
+    <div class="row">
+        <div class="col">
+            <h1 class="display-5 fw-bold text-gradient" style="background: linear-gradient(to right, #7F7FFF, #A5A5FF); -webkit-background-clip: text; color: transparent;">
+                Welcome to the Predictive Banking App!
+            </h1>
+            <p class="lead text-muted" style="margin-top: 10px;">
+                Harnessing AI to predict customer behavior in banking.
+            </p>
+        </div>
+    </div>
+
+    <!-- Explainer Card -->
+    <div class="row mt-4">
+        <div class="col-12 col-md-8 offset-md-2">
+            <div class="card shadow-lg" style="border: none; border-radius: 12px; background: #F7F7FF;">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold" style="color: #6161FF;">
+                        About This Project
+                    </h5>
+                    <p class="card-text text-muted">
+                        This application is powered by a <span class="fw-bold">Random Forest model</span> trained on the <a href="https://www.kaggle.com/code/vinicius150987/bank-full-machine-learning" target="_blank" style="color: #7F7FFF; text-decoration: none;">Bank Marketing Dataset</a>. 
+                        The dataset includes details about customers and their interactions with a financial institution, allowing us to predict whether a client will agree to make a fixed-term deposit.
+                    </p>
+                    <p class="card-text text-muted">
+                        By leveraging <span class="fw-bold">Python</span>, <span class="fw-bold">Flask</span>, and machine learning, I personally trained the model to provide predictions based on customer profiles.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Button Explanation -->
+    <div class="row mt-4">
+        <div class="col">
+            <div class="alert alert-info" role="alert" style="border-radius: 12px;">
+                <i class="fas fa-info-circle"></i> Need assistance? The <strong>Help</strong> button is available in the <strong>Deposit Approval Predictor</strong> module. Use it to understand the app's features and variable explanations.
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Button -->
+    <div class="row mt-5">
+        <div class="col">
+            <a href="/DepositApprovalPredictor" class="btn btn-primary btn-lg btn-custom" style="background: #7F7FFF; border: none; border-radius: 30px; padding: 15px 40px;">
+                <i class="fas fa-arrow-right"></i> Start Prediction
+            </a>
+        </div>
+    </div>
+
+    <!-- Technologies Used -->
+    <div class="row mt-5">
+        <div class="col">
+            <h5 class="fw-bold" style="color: #6161FF;">Technologies Used</h5>
+            <div class="mt-3">
+                <i class="fab fa-python" style="font-size: 40px; color: #306998;"></i>
+                <i class="fab fa-bootstrap" style="font-size: 40px; color: #563D7C;"></i>
+                <i class="fab fa-js" style="font-size: 40px; color: #F0DB4F;"></i>
+                <i class="fab fa-css3-alt" style="font-size: 40px; color: #1572B6;"></i> 
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

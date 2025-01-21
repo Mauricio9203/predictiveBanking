@@ -1,0 +1,237 @@
+/* Importaciones de fuentes */
+@import url("https://fonts.googleapis.com/css2?family=Gloock&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gloock&family=Montserrat:wght@400;600&display=swap");
+
+/* Estilo global */
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Tablas */
+tr, .dataTables_scrollHead {
+  border: 1px solid #dddddd; /* Borde gris */
+}
+
+td, th {
+  font-size: 12px;
+  border: 1px solid #ccc; /* Borde gris */
+}
+
+th {
+  min-width: 150px;
+}
+
+#miTabla_info,
+#miTabla_length,
+#miTabla_filter,
+#miTabla_paginate {
+  font-size: 12px;
+}
+
+/* Dropdown con animación */
+.my-dropdown-class {
+  animation: fade-in 0.5s ease;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Select personalizado */
+.select2-container .select2-selection--single {
+  height: 42px;
+}
+
+/* Contenedor de gráficos */
+.chart-container {
+  width: 100%; /* Ajustar al contenedor */
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Íconos */
+i {
+  color: #73b4f9;
+  font-size: 1.2em;
+}
+
+.form-floating i {
+  font-size: 1.3em;
+}
+
+/* Slider personalizado */
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: #007bff;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-range::-webkit-slider-thumb:hover {
+  background-color: #0056b3;
+  transform: scale(1.2);
+}
+
+.form-range::-webkit-slider-thumb:active {
+  transform: scale(1.1);
+}
+
+.form-range::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, #007bff, #80d0ff);
+  height: 10px;
+  border-radius: 5px;
+}
+
+.form-range:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 204, 255, 0.75);
+}
+
+/* Controles de formulario */
+.form-select:focus, .form-control:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 204, 255, 0.75);
+}
+
+/* Botón flotante */
+.fab {
+  transition: transform 0.6s ease;
+}
+
+.fab:hover, .icon-image:hover {
+  transform: scale(1.4);
+}
+
+/* Botón personalizado */
+.btn-custom {
+  background-color: #7F7FFF;
+  border: none;
+  border-radius: 30px;
+  padding: 15px 40px;
+  transition: transform 0.4s ease, background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+  background-color: #00BFFF;
+  transform: scale(1.3);
+}
+
+.btn-custom i {
+  margin-right: 10px;
+}
+
+/* Botón circular flotante */
+.btn-circle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #be4ec8;
+  color: white;
+  font-size: 30px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 15px 20px rgba(79, 0, 103, 0.1);
+  cursor: pointer;
+  animation: bounce 3s infinite ease-in-out;
+}
+
+.btn-circle:hover {
+  background-color: #0056b3;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Animaciones iniciales */
+#formDataPredic {
+  animation: slideFromLeft 1s ease-out forwards;
+}
+
+@keyframes slideFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#welcomePage {
+  animation: slideInUp 2s ease-out;
+}
+
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Botón flotante de envío */
+#submitFlex {
+  position: fixed;
+  bottom: 20px;
+  right: 80px;
+  background-color: #285ba7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 14px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  cursor: pointer;
+  animation: bounce 3s infinite ease-in-out;
+}
+
+#submitFlex:hover {
+  background-color: #090084;
+}
+
+/* Modales */
+.modal-backdrop {
+  z-index: 1050 !important;
+}
+
+.modal {
+  z-index: 1060 !important;
+}
+
+#closeModal {
+  background-color: white; /* White background for the button */
+  border: none; /* Remove border */
+}
+#closeModal::before {
+  color: white; /* Make the "X" white */
+}

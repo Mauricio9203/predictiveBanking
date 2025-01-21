@@ -1,0 +1,277 @@
+{% extends './base.html' %}
+
+{% block title %}Data Analysis{% endblock %}
+
+{% block body %}
+
+<div class="row mt-4" id="formDataPredic">
+  <!-- Formulario -->
+  <div class="card mt-4 shadow">
+    <div class="row g-3 mt-1 p-3">
+      
+      <!-- Personal Information -->
+      <div class="col-12">
+        <h5><i class="fas fa-user-circle me-2"></i>Personal Information</h5>
+        <p class="text-muted">Provide details about the customer's personal background.</p>
+        <hr>
+      </div>
+
+      <!-- Job -->
+      <div class="col-md-3">
+        <div class="form-floating shadow-sm shadow-sm">
+          <select class="form-select form-select-sm" id="job" required>
+            <option value="" selected>Select</option>
+            <option value="admin.">Admin</option>
+            <option value="technician">Technician</option>
+            <option value="services">Services</option>
+            <option value="management">Management</option>
+            <option value="retired">Retired</option>
+            <option value="blue-collar">Blue-collar</option>
+            <option value="unemployed">Unemployed</option>
+            <option value="entrepreneur">Entrepreneur</option>
+            <option value="housemaid">Housemaid</option>
+            <option value="unknown">Unknown</option>
+            <option value="self-employed">Self-employed</option>
+            <option value="student">Student</option>
+          </select>
+          <label for="job"><i class="fas fa-briefcase me-2"></i>Job</label>
+        </div>
+      </div>
+
+      <!-- Marital -->
+      <div class="col-md-3">
+        <div class="form-floating shadow-sm">
+          <select class="form-select form-select-sm" id="marital" required>
+            <option value="" selected>Select</option>
+            <option value="single">Single</option>
+            <option value="married">Married</option>
+            <option value="divorced">Divorced</option>
+          </select>
+          <label for="marital"><i class="fas fa-ring me-2"></i>Marital</label>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="col-md-3">
+        <div class="form-floating shadow-sm">
+          <select class="form-select form-select-sm" id="education" required>
+            <option value="" selected>Select</option>
+            <option value="secondary">Secondary</option>
+            <option value="tertiary">Tertiary</option>
+            <option value="primary">Primary</option>
+            <option value="unknown">Unknown</option>
+          </select>
+          <label for="education"><i class="fas fa-graduation-cap me-2"></i>Education</label>
+        </div>
+      </div>
+
+      <!-- Age -->
+      <div class="col-md-3">
+        <div class="form-floating shadow-sm">
+          <input type="range" class="form-control form-range" value="18" id="age" min="18" max="120" required>
+          <label for="age" ><i class="fas fa-birthday-cake me-2"></i>Age (<span id="labelAge">18</span>)</label>
+        </div>
+      </div>
+
+      <!-- Financial Information -->
+      <div class="col-12 mt-3">
+        <h5><i class="fas fa-money-check-alt me-2"></i>Financial Information</h5>
+        <p class="text-muted">Provide financial details such as balance and loan status.</p>
+        <hr>
+      </div>
+
+      <!-- Balance -->
+      <div class="col-md-3">
+        <div class="form-floating shadow-sm">
+          <input type="number" class="form-control form-select-sm" id="balance" required>
+          <label for="balance"><i class="fas fa-wallet me-2"></i>Balance (€)</label>
+        </div>
+      </div>
+
+      <!-- Housing -->
+      <div class="col-md-3">
+        <div class="form-floating shadow-sm">
+          <select class="form-select form-select-sm" id="housing" required>
+            <option value="" selected>Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <label for="housing"><i class="fas fa-home me-2"></i>Housing</label>
+        </div>
+      </div>
+
+      <!-- Loan -->
+      <div class="col-md-3">
+        <div class="form-floating shadow-sm">
+          <select class="form-select form-select-sm" id="loan" required>
+            <option value="" selected>Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <label for="loan"><i class="fas fa-credit-card me-2"></i>Loan</label>
+        </div>
+      </div>
+
+      <!-- Default -->
+      <div class="col-md-3">
+        <div class="form-floating shadow-sm">
+          <select class="form-select form-select-sm" id="default" required>
+            <option value="" selected>Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <label for="default"><i class="fas fa-exclamation-circle me-2"></i>Default</label>
+        </div>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="col-12 mt-3">
+        <h5><i class="fas fa-phone-alt me-2"></i>Contact Information</h5>
+        <p class="text-muted">Details about how and when the customer was contacted.</p>
+        <hr>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-md-3">
+        <div class="form-floating shadow-sm">
+          <select class="form-select form-select-sm" id="contact" required>
+            <option value="" selected>Select</option>
+            <option value="cellular">Cellular</option>
+            <option value="telephone">Telephone</option>
+          </select>
+          <label for="contact"><i class="fas fa-phone me-2"></i>Contact</label>
+        </div>
+      </div>
+
+      <!-- Month -->
+      <div class="col-md-3">
+        <div class="form-floating shadow-sm">
+          <select class="form-select form-select-sm" id="month" required>
+            <option value="" selected>Select</option>
+            <option value="jan">Jan</option>
+            <option value="feb">Feb</option>
+            <option value="mar">Mar</option>
+            <option value="apr">Apr</option>
+            <option value="may">May</option>
+            <option value="jun">Jun</option>
+            <option value="jul">Jul</option>
+            <option value="aug">Aug</option>
+            <option value="sep">Sep</option>
+            <option value="oct">Oct</option>
+            <option value="nov">Nov</option>
+            <option value="dec">Dec</option>
+          </select>
+          <label for="month"><i class="fas fa-calendar-alt me-2"></i>Month</label>
+        </div>
+      </div>
+
+      <!-- Day -->
+      <div class="col-md-3">
+        <div class="form-floating shadow-sm">
+          <input type="range" class="form-control form-range" value="1" id="day" min="1" max="31" required>
+          <label for="day"><i class="fas fa-calendar-day me-2"></i>Day (<span id="labelDay">1</span>)</label>
+        </div>
+      </div>
+
+      <!-- Duration & Results -->
+      <div class="col-12 mt-3">
+        <h5><i class="fas fa-clock me-2"></i>Duration & Results</h5>
+        <p class="text-muted">Add details about the call duration and campaign outcomes.</p>
+        <hr>
+      </div>
+
+      <!-- Duration -->
+      <div class="col-md-3">
+        <div class="form-floating shadow-sm">
+          <input type="number" class="form-control form-select-sm" id="duration" required>
+          <label for="duration"><i class="fas fa-stopwatch me-2"></i>Duration (s)</label>
+        </div>
+      </div>
+
+      <!-- Campaign -->
+      <div class="col-md-3">
+        <div class="form-floating shadow-sm">
+          <input type="number" class="form-control form-select-sm" id="campaign" required>
+          <label for="campaign"><i class="fas fa-bullhorn me-2"></i>Campaign</label>
+        </div>
+      </div>
+
+      <!-- Pdays -->
+      <div class="col-md-3">
+        <div class="form-floating shadow-sm">
+          <input type="number" class="form-control form-select-sm" min="-1" id="pdays" required>
+          <label for="pdays"><i class="fas fa-hourglass-end me-2"></i>Pdays</label>
+        </div>
+      </div>
+
+      <!-- Previous -->
+      <div class="col-md-3">
+        <div class="form-floating shadow-sm">
+          <input type="number" class="form-control form-select-sm" id="previous" required>
+          <label for="previous"><i class="fas fa-history me-2"></i>Previous</label>
+        </div>
+      </div>
+
+      <!-- Poutcome -->
+      <div class="col-md-3">
+        <div class="form-floating shadow-sm">
+          <select class="form-select form-select-sm" id="poutcome" required>
+            <option value="" selected>Select</option>
+            <option value="failure">Failure</option>
+            <option value="success">Success</option>
+            <option value="other">Other</option>
+          </select>
+          <label for="poutcome"><i class="fas fa-chart-line me-2"></i>Outcome</label>
+        </div>
+      </div>
+
+      <!-- Submit Buttons -->
+      <div class="col-12 mt-3">
+        <button class="btn btn-primary w-100 d-none btn-sm" id="submitLoading" type="button" disabled>
+          <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+          <span role="status">Loading...</span>
+        </button>
+        <!-- Botón principal estático -->
+        <button class="btn btn-primary w-100 btn-sm mb-1" id="submitForm">
+          <i class="fas fa-paper-plane me-2"></i>Submit
+        </button>
+        <!-- Botón Fill Fields -->
+        <button class="btn btn-secondary w-100 btn-sm mb-4" id="llenarCampos">
+          <i class="fas fa-magic me-2"></i>Fill Fields
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-3 d-none" id="probGrafDiv">
+  <div class="card mt-4 mb-4 shadow">
+    <div class="card-body">
+      <h5 class="card-title text-center" style="color: #5555fe; font-weight: bold;">Prediction Probability Distribution</h5>
+      <p class="card-text text-center text-muted">
+        Visualizing the likelihood of a customer accepting the term deposit offer based on the model's prediction.
+      </p>
+      <p class="card-text text-center text-muted" >
+        This pie chart shows the probability distribution of the prediction, indicating the percentage of customers likely to agree to a fixed-term deposit offer based on the input data.
+      </p>
+    </div>
+    <div class="chart-container text-center">
+      <canvas id="probabilityPieChart" width="400" height="400"></canvas>
+    </div>
+  </div>
+</div>
+
+<button class="btn-circle btn-sm"  id="openModalBtn" data-bs-target="#modalHelp">
+  <span class="info-icon">?</span>
+</button>
+
+<button class="btn btn-primary btn-sm" id="submitFlex">
+  <i class="fas fa-paper-plane me-2"></i>Submit
+</button>
+ 
+<div id="modal-container">
+</div>
+<!--Asociar archivo script js de esta página-->
+<script src="{{ url_for('static', filename='js/deposit-approval-predictor.js') }}"></script>
+
+{% endblock %}
