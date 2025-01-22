@@ -1,0 +1,115 @@
+{
+    "dataset": {
+        "num_records": 11162,
+        "num_columns": 17,
+        "columns": [
+            "age",
+            "job",
+            "marital",
+            "education",
+            "default",
+            "balance",
+            "housing",
+            "loan",
+            "contact",
+            "day",
+            "month",
+            "duration",
+            "campaign",
+            "pdays",
+            "previous",
+            "poutcome",
+            "deposit"
+        ],
+        "categorical_columns": [
+            "job",
+            "marital",
+            "education",
+            "default",
+            "housing",
+            "loan",
+            "contact",
+            "poutcome",
+            "month"
+        ],
+        "numerical_columns": [
+            "balance",
+            "day",
+            "campaign",
+            "pdays",
+            "previous",
+            "age",
+            "duration"
+        ]
+    },
+    "preprocessing": {
+        "scaling": "StandardScaler applied to numerical columns",
+        "encoding": "LabelEncoder applied to categorical columns"
+    },
+    "model": {
+        "algorithm": "Random Forest",
+        "params": {
+            "bootstrap": true,
+            "ccp_alpha": 0.0,
+            "class_weight": null,
+            "criterion": "gini",
+            "max_depth": null,
+            "max_features": "sqrt",
+            "max_leaf_nodes": null,
+            "max_samples": null,
+            "min_impurity_decrease": 0.0,
+            "min_samples_leaf": 1,
+            "min_samples_split": 2,
+            "min_weight_fraction_leaf": 0.0,
+            "monotonic_cst": null,
+            "n_estimators": 100,
+            "n_jobs": null,
+            "oob_score": false,
+            "random_state": 42,
+            "verbose": 0,
+            "warm_start": false
+        },
+        "training_time": 1.529167890548706,
+        "num_trees": 100,
+        "max_depth": null
+    },
+    "performance_metrics": {
+        "accuracy": 0.8351992834751455,
+        "recall": 0.8556701030927835,
+        "precision": 0.8101153504880213,
+        "f1_score": 0.8322698268003647,
+        "roc_auc": 0.9097222780402565,
+        "confusion_matrix": [
+            [
+                952,
+                214
+            ],
+            [
+                154,
+                913
+            ]
+        ]
+    },
+    "training_details": {
+        "training_date": "2025-01-22 08:59:44",
+        "training_duration_seconds": 1.529167890548706,
+        "num_iterations": 100,
+        "training_size": 8929,
+        "hardware_requirements": {
+            "CPU": "Intel i7",
+            "RAM": "16 GB"
+        }
+    },
+    "version": {
+        "model_version": "1.0.0",
+        "dependencies": {
+            "scikit-learn": "0.24.1",
+            "pandas": "1.2.1",
+            "numpy": "1.19.5"
+        }
+    },
+    "experiment": {
+        "experiment_id": "exp_2025_01_22_01",
+        "notes": "Modelo entrenado con un conjunto de datos actualizado, mejorados los hiperpar\u00e1metros."
+    }
+}
