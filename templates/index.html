@@ -18,40 +18,41 @@
         </div>
     </div>
 
-    <!-- Explainer Card -->
-    <div class="row mt-4">
-        <div class="col-12 col-md-8 offset-md-2">
-            <div class="card shadow-lg" style="border: none; border-radius: 12px; background: #F7F7FF;">
+    <!-- Modules Explanation Section -->
+    <div class="row mt-5">
+        <div class="col-12 col-md-10 offset-md-1">
+            <div class="card shadow-lg" style="border: none; border-radius: 20px; background: #F7F7FF;">
                 <div class="card-body">
                     <h5 class="card-title fw-bold" style="color: #6161FF;">
-                        About This Project
+                        Explore Our Modules
                     </h5>
                     <p class="card-text text-muted">
-                        This application is powered by a <span class="fw-bold">Random Forest model</span> trained on the <a href="https://www.kaggle.com/code/vinicius150987/bank-full-machine-learning" target="_blank" style="color: #7F7FFF; text-decoration: none;">Bank Marketing Dataset</a>. 
-                        The dataset includes details about customers and their interactions with a financial institution, allowing us to predict whether a client will agree to make a fixed-term deposit.
+                        This application offers two main modules to predict customer behavior:
                     </p>
-                    <p class="card-text text-muted">
-                        By leveraging <span class="fw-bold">Python</span>, <span class="fw-bold">Flask</span>, and machine learning, I personally trained the model to provide predictions based on customer profiles.
+                    <ul class="list-group list-group-flush text-start">
+                        <li class="list-group-item" style="border: none; background: transparent;">
+                            <strong style="color: #4A4EAE;">Deposit Approval Predictor:</strong> This module is designed for individual predictions. Enter customer details directly into the interface to get instant results.
+                        </li>
+                        <li class="list-group-item" style="border: none; background: transparent;">
+                            <strong style="color: #4A4EAE;">Massive Predictions:</strong> This module processes predictions in bulk. Upload an Excel file containing customer data to receive a detailed report with predictions for all entries.
+                        </li>
+                    </ul>
+                    <p class="text-muted mt-3">
+                        Choose the module that fits your needs and let our AI handle the predictions!
                     </p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Help Button Explanation -->
-    <div class="row mt-4">
-        <div class="col">
-            <div class="alert alert-info" role="alert" style="border-radius: 12px;">
-                <i class="fas fa-info-circle"></i> Need assistance? The <strong>Help</strong> button is available in the <strong>Deposit Approval Predictor</strong> module. Use it to understand the app's features and variable explanations.
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Button -->
+    <!-- Start Prediction Buttons -->
     <div class="row mt-5">
         <div class="col">
-            <a href="/DepositApprovalPredictor" class="btn btn-primary btn-lg btn-custom" style="background: #7F7FFF; border: none; border-radius: 30px; padding: 15px 40px;">
-                <i class="fas fa-arrow-right"></i> Start Prediction
+            <a href="{{ url_for('deposit_approval_predictor_view') }}" class="btn btn-primary btn-lg mx-3" style="background: #7F7FFF; border: none; border-radius: 30px; padding: 15px 40px;">
+                <i class="fas fa-user"></i> Individual Prediction
+            </a>
+            <a href="{{ url_for('massive_predictions_view') }}" class="btn btn-outline-primary btn-lg mx-3" style="border: 2px solid #7F7FFF; border-radius: 30px; padding: 15px 40px; color: #7F7FFF;">
+                <i class="fas fa-file-upload"></i> Massive Prediction
             </a>
         </div>
     </div>
