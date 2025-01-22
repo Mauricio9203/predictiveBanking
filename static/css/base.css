@@ -174,7 +174,7 @@ i {
 @keyframes slideFromLeft {
   0% {
     opacity: 0;
-    transform: translateY(-100%);
+    transform: translateY(100%);
   }
   100% {
     opacity: 1;
@@ -274,4 +274,26 @@ i {
 .card-style:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 10px 4px rgba(0, 191, 255, 0.6); /* Sombra celeste */
+}
+
+
+
+
+
+
+
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100%); /* Empieza desde abajo */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Se mueve a su posición final */
+  }
+}
+
+#depositPredictionPage {
+  animation: slideInUp 0.8s ease-out;
+  animation-fill-mode: forwards;
 }

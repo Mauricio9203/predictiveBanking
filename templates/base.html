@@ -35,6 +35,7 @@
     <!--<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.js"></script>-->
     <!--<script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json"></script>-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
 </head>
 
 
@@ -58,7 +59,8 @@
                         Modules
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="desplegable_navbar">
-                        <li><a class="dropdown-item" href="{{ url_for('DepositApprovalPredictor') }}">Deposit Approval Predictor</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('deposit_approval_predictor_view') }}">Deposit Approval Predictor</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('massive_predictions_view') }}">Massive Predictions</a></li>
                     </ul>
                 </li>
             </ul>
