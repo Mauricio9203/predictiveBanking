@@ -5,261 +5,402 @@
 {% block body %}
 
 <div class="row mt-4" id="formDataPredic">
-  <!-- Formulario -->
-  <div class="card mt-4 shadow">
-    <div class="row g-3 mt-1 p-3">
-      
-      <!-- Personal Information -->
-      <div class="col-12">
-        <h5><i class="fas fa-user-circle me-2"></i>Personal Information</h5>
-        <p class="text-muted">Provide details about the customer's personal background.</p>
-        <hr>
-      </div>
-
-      <!-- Job -->
-      <div class="col-md-3">
-        <div class="form-floating shadow-sm shadow-sm">
-          <select class="form-select form-select-sm" id="job" required>
-            <option value="" selected>Select</option>
-            <option value="admin.">Admin</option>
-            <option value="technician">Technician</option>
-            <option value="services">Services</option>
-            <option value="management">Management</option>
-            <option value="retired">Retired</option>
-            <option value="blue-collar">Blue-collar</option>
-            <option value="unemployed">Unemployed</option>
-            <option value="entrepreneur">Entrepreneur</option>
-            <option value="housemaid">Housemaid</option>
-            <option value="unknown">Unknown</option>
-            <option value="self-employed">Self-employed</option>
-            <option value="student">Student</option>
-          </select>
-          <label for="job"><i class="fas fa-briefcase me-2"></i>Job</label>
+  <div class="col-12 mb-4">
+    <!-- Formulario -->
+    <div class="card mt-4 shadow">
+      <div class="row g-3 mt-1 p-3">
+        
+        <!-- Personal Information -->
+        <div class="col-12">
+          <h5><i class="fas fa-user-circle me-2"></i>Personal Information</h5>
+          <p class="text-muted">Provide details about the customer's personal background.</p>
+          <hr>
         </div>
-      </div>
 
-      <!-- Marital -->
-      <div class="col-md-3">
-        <div class="form-floating shadow-sm">
-          <select class="form-select form-select-sm" id="marital" required>
-            <option value="" selected>Select</option>
-            <option value="single">Single</option>
-            <option value="married">Married</option>
-            <option value="divorced">Divorced</option>
-          </select>
-          <label for="marital"><i class="fas fa-ring me-2"></i>Marital</label>
+        <!-- Job -->
+        <div class="col-md-3">
+          <div class="form-floating shadow-sm shadow-sm">
+            <select class="form-select form-select-sm" id="job" required>
+              <option value="" selected>Select</option>
+              <option value="admin.">Admin</option>
+              <option value="technician">Technician</option>
+              <option value="services">Services</option>
+              <option value="management">Management</option>
+              <option value="retired">Retired</option>
+              <option value="blue-collar">Blue-collar</option>
+              <option value="unemployed">Unemployed</option>
+              <option value="entrepreneur">Entrepreneur</option>
+              <option value="housemaid">Housemaid</option>
+              <option value="unknown">Unknown</option>
+              <option value="self-employed">Self-employed</option>
+              <option value="student">Student</option>
+            </select>
+            <label for="job"><i class="fas fa-briefcase me-2"></i>Job</label>
+          </div>
         </div>
-      </div>
 
-      <!-- Education -->
-      <div class="col-md-3">
-        <div class="form-floating shadow-sm">
-          <select class="form-select form-select-sm" id="education" required>
-            <option value="" selected>Select</option>
-            <option value="secondary">Secondary</option>
-            <option value="tertiary">Tertiary</option>
-            <option value="primary">Primary</option>
-            <option value="unknown">Unknown</option>
-          </select>
-          <label for="education"><i class="fas fa-graduation-cap me-2"></i>Education</label>
+        <!-- Marital -->
+        <div class="col-md-3">
+          <div class="form-floating shadow-sm">
+            <select class="form-select form-select-sm" id="marital" required>
+              <option value="" selected>Select</option>
+              <option value="single">Single</option>
+              <option value="married">Married</option>
+              <option value="divorced">Divorced</option>
+            </select>
+            <label for="marital"><i class="fas fa-ring me-2"></i>Marital</label>
+          </div>
         </div>
-      </div>
 
-      <!-- Age -->
-      <div class="col-md-3">
-        <div class="form-floating shadow-sm">
-          <input type="range" class="form-control form-range" value="18" id="age" min="18" max="120" required>
-          <label for="age" ><i class="fas fa-birthday-cake me-2"></i>Age (<span id="labelAge">18</span>)</label>
+        <!-- Education -->
+        <div class="col-md-3">
+          <div class="form-floating shadow-sm">
+            <select class="form-select form-select-sm" id="education" required>
+              <option value="" selected>Select</option>
+              <option value="secondary">Secondary</option>
+              <option value="tertiary">Tertiary</option>
+              <option value="primary">Primary</option>
+              <option value="unknown">Unknown</option>
+            </select>
+            <label for="education"><i class="fas fa-graduation-cap me-2"></i>Education</label>
+          </div>
         </div>
-      </div>
 
-      <!-- Financial Information -->
-      <div class="col-12 mt-3">
-        <h5><i class="fas fa-money-check-alt me-2"></i>Financial Information</h5>
-        <p class="text-muted">Provide financial details such as balance and loan status.</p>
-        <hr>
-      </div>
-
-      <!-- Balance -->
-      <div class="col-md-3">
-        <div class="form-floating shadow-sm">
-          <input type="number" class="form-control form-select-sm" id="balance" required>
-          <label for="balance"><i class="fas fa-wallet me-2"></i>Balance (€)</label>
+        <!-- Age -->
+        <div class="col-md-3">
+          <div class="form-floating shadow-sm">
+            <input type="range" class="form-control form-range" value="18" id="age" min="18" max="120" required>
+            <label for="age" ><i class="fas fa-birthday-cake me-2"></i>Age (<span id="labelAge">18</span>)</label>
+          </div>
         </div>
-      </div>
 
-      <!-- Housing -->
-      <div class="col-md-3">
-        <div class="form-floating shadow-sm">
-          <select class="form-select form-select-sm" id="housing" required>
-            <option value="" selected>Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-          <label for="housing"><i class="fas fa-home me-2"></i>Housing</label>
+        <!-- Financial Information -->
+        <div class="col-12 mt-3">
+          <h5><i class="fas fa-money-check-alt me-2"></i>Financial Information</h5>
+          <p class="text-muted">Provide financial details such as balance and loan status.</p>
+          <hr>
         </div>
-      </div>
 
-      <!-- Loan -->
-      <div class="col-md-3">
-        <div class="form-floating shadow-sm">
-          <select class="form-select form-select-sm" id="loan" required>
-            <option value="" selected>Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-          <label for="loan"><i class="fas fa-credit-card me-2"></i>Loan</label>
+        <!-- Balance -->
+        <div class="col-md-3">
+          <div class="form-floating shadow-sm">
+            <input type="number" class="form-control form-select-sm" id="balance" required>
+            <label for="balance"><i class="fas fa-wallet me-2"></i>Balance (€)</label>
+          </div>
         </div>
-      </div>
 
-      <!-- Default -->
-      <div class="col-md-3">
-        <div class="form-floating shadow-sm">
-          <select class="form-select form-select-sm" id="default" required>
-            <option value="" selected>Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-          <label for="default"><i class="fas fa-exclamation-circle me-2"></i>Default</label>
+        <!-- Housing -->
+        <div class="col-md-3">
+          <div class="form-floating shadow-sm">
+            <select class="form-select form-select-sm" id="housing" required>
+              <option value="" selected>Select</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+            <label for="housing"><i class="fas fa-home me-2"></i>Housing</label>
+          </div>
         </div>
-      </div>
 
-      <!-- Contact Information -->
-      <div class="col-12 mt-3">
-        <h5><i class="fas fa-phone-alt me-2"></i>Contact Information</h5>
-        <p class="text-muted">Details about how and when the customer was contacted.</p>
-        <hr>
-      </div>
-
-      <!-- Contact -->
-      <div class="col-md-3">
-        <div class="form-floating shadow-sm">
-          <select class="form-select form-select-sm" id="contact" required>
-            <option value="" selected>Select</option>
-            <option value="cellular">Cellular</option>
-            <option value="telephone">Telephone</option>
-          </select>
-          <label for="contact"><i class="fas fa-phone me-2"></i>Contact</label>
+        <!-- Loan -->
+        <div class="col-md-3">
+          <div class="form-floating shadow-sm">
+            <select class="form-select form-select-sm" id="loan" required>
+              <option value="" selected>Select</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+            <label for="loan"><i class="fas fa-credit-card me-2"></i>Loan</label>
+          </div>
         </div>
-      </div>
 
-      <!-- Month -->
-      <div class="col-md-3">
-        <div class="form-floating shadow-sm">
-          <select class="form-select form-select-sm" id="month" required>
-            <option value="" selected>Select</option>
-            <option value="jan">Jan</option>
-            <option value="feb">Feb</option>
-            <option value="mar">Mar</option>
-            <option value="apr">Apr</option>
-            <option value="may">May</option>
-            <option value="jun">Jun</option>
-            <option value="jul">Jul</option>
-            <option value="aug">Aug</option>
-            <option value="sep">Sep</option>
-            <option value="oct">Oct</option>
-            <option value="nov">Nov</option>
-            <option value="dec">Dec</option>
-          </select>
-          <label for="month"><i class="fas fa-calendar-alt me-2"></i>Month</label>
+        <!-- Default -->
+        <div class="col-md-3">
+          <div class="form-floating shadow-sm">
+            <select class="form-select form-select-sm" id="default" required>
+              <option value="" selected>Select</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+            <label for="default"><i class="fas fa-exclamation-circle me-2"></i>Default</label>
+          </div>
         </div>
-      </div>
 
-      <!-- Day -->
-      <div class="col-md-3">
-        <div class="form-floating shadow-sm">
-          <input type="range" class="form-control form-range" value="1" id="day" min="1" max="31" required>
-          <label for="day"><i class="fas fa-calendar-day me-2"></i>Day (<span id="labelDay">1</span>)</label>
+        <!-- Contact Information -->
+        <div class="col-12 mt-3">
+          <h5><i class="fas fa-phone-alt me-2"></i>Contact Information</h5>
+          <p class="text-muted">Details about how and when the customer was contacted.</p>
+          <hr>
         </div>
-      </div>
 
-      <!-- Duration & Results -->
-      <div class="col-12 mt-3">
-        <h5><i class="fas fa-clock me-2"></i>Duration & Results</h5>
-        <p class="text-muted">Add details about the call duration and campaign outcomes.</p>
-        <hr>
-      </div>
-
-      <!-- Duration -->
-      <div class="col-md-3">
-        <div class="form-floating shadow-sm">
-          <input type="number" class="form-control form-select-sm" id="duration" required>
-          <label for="duration"><i class="fas fa-stopwatch me-2"></i>Duration (s)</label>
+        <!-- Contact -->
+        <div class="col-md-3">
+          <div class="form-floating shadow-sm">
+            <select class="form-select form-select-sm" id="contact" required>
+              <option value="" selected>Select</option>
+              <option value="cellular">Cellular</option>
+              <option value="telephone">Telephone</option>
+            </select>
+            <label for="contact"><i class="fas fa-phone me-2"></i>Contact</label>
+          </div>
         </div>
-      </div>
 
-      <!-- Campaign -->
-      <div class="col-md-3">
-        <div class="form-floating shadow-sm">
-          <input type="number" class="form-control form-select-sm" id="campaign" required>
-          <label for="campaign"><i class="fas fa-bullhorn me-2"></i>Campaign</label>
+        <!-- Month -->
+        <div class="col-md-3">
+          <div class="form-floating shadow-sm">
+            <select class="form-select form-select-sm" id="month" required>
+              <option value="" selected>Select</option>
+              <option value="jan">Jan</option>
+              <option value="feb">Feb</option>
+              <option value="mar">Mar</option>
+              <option value="apr">Apr</option>
+              <option value="may">May</option>
+              <option value="jun">Jun</option>
+              <option value="jul">Jul</option>
+              <option value="aug">Aug</option>
+              <option value="sep">Sep</option>
+              <option value="oct">Oct</option>
+              <option value="nov">Nov</option>
+              <option value="dec">Dec</option>
+            </select>
+            <label for="month"><i class="fas fa-calendar-alt me-2"></i>Month</label>
+          </div>
         </div>
-      </div>
 
-      <!-- Pdays -->
-      <div class="col-md-3">
-        <div class="form-floating shadow-sm">
-          <input type="number" class="form-control form-select-sm" min="-1" id="pdays" required>
-          <label for="pdays"><i class="fas fa-hourglass-end me-2"></i>Pdays</label>
+        <!-- Day -->
+        <div class="col-md-3">
+          <div class="form-floating shadow-sm">
+            <input type="range" class="form-control form-range" value="1" id="day" min="1" max="31" required>
+            <label for="day"><i class="fas fa-calendar-day me-2"></i>Day (<span id="labelDay">1</span>)</label>
+          </div>
         </div>
-      </div>
 
-      <!-- Previous -->
-      <div class="col-md-3">
-        <div class="form-floating shadow-sm">
-          <input type="number" class="form-control form-select-sm" id="previous" required>
-          <label for="previous"><i class="fas fa-history me-2"></i>Previous</label>
+        <!-- Duration & Results -->
+        <div class="col-12 mt-3">
+          <h5><i class="fas fa-clock me-2"></i>Duration & Results</h5>
+          <p class="text-muted">Add details about the call duration and campaign outcomes.</p>
+          <hr>
         </div>
-      </div>
 
-      <!-- Poutcome -->
-      <div class="col-md-3">
-        <div class="form-floating shadow-sm">
-          <select class="form-select form-select-sm" id="poutcome" required>
-            <option value="" selected>Select</option>
-            <option value="failure">Failure</option>
-            <option value="success">Success</option>
-            <option value="other">Other</option>
-          </select>
-          <label for="poutcome"><i class="fas fa-chart-line me-2"></i>Outcome</label>
+        <!-- Duration -->
+        <div class="col-md-3">
+          <div class="form-floating shadow-sm">
+            <input type="number" class="form-control form-select-sm" id="duration" required>
+            <label for="duration"><i class="fas fa-stopwatch me-2"></i>Duration (s)</label>
+          </div>
         </div>
-      </div>
 
-      <!-- Submit Buttons -->
-      <div class="col-12 mt-3">
-        <button class="btn btn-primary w-100 d-none btn-sm" id="submitLoading" type="button" disabled>
-          <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
-          <span role="status">Loading...</span>
-        </button>
-        <!-- Botón principal estático -->
-        <button class="btn btn-primary w-100 btn-sm mb-1" id="submitForm">
-          <i class="fas fa-paper-plane me-2"></i>Submit
-        </button>
-        <!-- Botón Fill Fields -->
-        <button class="btn btn-secondary w-100 btn-sm mb-4" id="llenarCampos">
-          <i class="fas fa-magic me-2"></i>Fill Fields
-        </button>
+        <!-- Campaign -->
+        <div class="col-md-3">
+          <div class="form-floating shadow-sm">
+            <input type="number" class="form-control form-select-sm" id="campaign" required>
+            <label for="campaign"><i class="fas fa-bullhorn me-2"></i>Campaign</label>
+          </div>
+        </div>
+
+        <!-- Pdays -->
+        <div class="col-md-3">
+          <div class="form-floating shadow-sm">
+            <input type="number" class="form-control form-select-sm" min="-1" id="pdays" required>
+            <label for="pdays"><i class="fas fa-hourglass-end me-2"></i>Pdays</label>
+          </div>
+        </div>
+
+        <!-- Previous -->
+        <div class="col-md-3">
+          <div class="form-floating shadow-sm">
+            <input type="number" class="form-control form-select-sm" id="previous" required>
+            <label for="previous"><i class="fas fa-history me-2"></i>Previous</label>
+          </div>
+        </div>
+
+        <!-- Poutcome -->
+        <div class="col-md-3">
+          <div class="form-floating shadow-sm">
+            <select class="form-select form-select-sm" id="poutcome" required>
+              <option value="" selected>Select</option>
+              <option value="failure">Failure</option>
+              <option value="success">Success</option>
+              <option value="other">Other</option>
+            </select>
+            <label for="poutcome"><i class="fas fa-chart-line me-2"></i>Outcome</label>
+          </div>
+        </div>
+
+        <!-- Submit Buttons -->
+        <div class="col-12 mt-3">
+          <button class="btn btn-primary w-100 d-none btn-sm" id="submitLoading" type="button" disabled>
+            <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+            <span role="status">Loading...</span>
+          </button>
+          <!-- Botón principal estático -->
+          <button class="btn btn-primary w-100 btn-sm mb-1" id="submitForm">
+            <i class="fas fa-paper-plane me-2"></i>Submit
+          </button>
+          <!-- Botón Fill Fields -->
+          <button class="btn btn-secondary w-100 btn-sm mb-4" id="llenarCampos">
+            <i class="fas fa-magic me-2"></i>Fill Fields
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+
 
 <div class="row mt-3 d-none" id="probGrafDiv">
-  <div class="card mt-4 mb-4 shadow">
-    <div class="card-body">
-      <h5 class="card-title text-center" style="color: #5555fe; font-weight: bold;">Prediction Probability Distribution</h5>
-      <p class="card-text text-center text-muted">
-        Visualizing the likelihood of a customer accepting the term deposit offer based on the model's prediction.
-      </p>
-      <p class="card-text text-center text-muted" >
-        This pie chart shows the probability distribution of the prediction, indicating the percentage of customers likely to agree to a fixed-term deposit offer based on the input data.
-      </p>
+  <div class="col-lg-6 col-12 mb-4">
+    <div class="card shadow-lg h-100">
+      <div class="card-body" style="padding-left: 15px; padding-right: 15px;">
+        <h5 class="card-title text-center" style="color: #5555fe; font-weight: bold; font-size: 1.25rem;">
+          Prediction Probability Distribution
+        </h5>
+        <p class="card-text text-center text-muted" style="font-size: 0.95rem;">
+          Visualizing the likelihood of a customer accepting the term deposit offer based on the model's prediction.
+        </p>
+        <p class="card-text text-center text-muted" style="font-size: 0.95rem;">
+          This pie chart shows the probability distribution of the prediction, indicating the percentage of customers likely to agree to a fixed-term deposit offer based on the input data.
+        </p>
+      </div>
+      <div class="chart-container text-center mb-4" style="padding-left: 20px; padding-right: 20px;">
+        <canvas id="probabilityPieChart" width="400" height="400"></canvas>
+      </div>
     </div>
-    <div class="chart-container text-center">
-      <canvas id="probabilityPieChart" width="400" height="400"></canvas>
+  </div>
+  
+  <div class="col-lg-6 col-12 mb-4">
+    <div class="card shadow-lg h-100">
+      <div class="card-body" style="padding-left: 15px; padding-right: 15px;">
+        <h5 class="card-title text-center" style="color: #5555fe; font-weight: bold; font-size: 1.25rem;">
+          Feature Importance Chart
+        </h5>
+        <p class="card-text text-center text-muted" style="font-size: 0.95rem;">
+          Displaying the importance of various features based on the model’s evaluation.
+        </p>
+      </div>
+      <div class="chart-container text-center mb-4" style="padding-left: 20px; padding-right: 20px;">
+        <canvas id="featureImportanceChart" width="400" height="400"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div id="additionalMetadata" class="col-12 text-center mt-4">
+    <p class="text-muted mb-4 metadata-title">Model and Performance Details</p>
+    <div id="metadataList" class="d-flex justify-content-center flex-wrap">
+      
+      <!-- Card for Model Type -->
+      <div class="metadata-item card-style">
+        <p class="metadata-label">Model Type
+          <button class="btn btn-link" id="modelTypeInfoBtn" data-toggle="tooltip" title="The model type used for classification.">
+            <i class="fas fa-info-circle"></i>
+          </button>
+        </p>
+        <p class="metadata-value" id="modelType">Random Forest</p>
+      </div>
+
+      <!-- Card for Number of Trees -->
+      <div class="metadata-item card-style">
+        <p class="metadata-label">Number of Trees
+          <button class="btn btn-link" id="numTreesInfoBtn" data-toggle="tooltip" title="The number of trees in the random forest model.">
+            <i class="fas fa-info-circle"></i>
+          </button>
+        </p>
+        <p class="metadata-value" id="numTrees">100</p>
+      </div>
+
+      <!-- Card for Training Date -->
+      <div class="metadata-item card-style">
+        <p class="metadata-label">Training Date
+          <button class="btn btn-link" id="trainingDateInfoBtn" data-toggle="tooltip" title="The date when the model was trained.">
+            <i class="fas fa-info-circle"></i>
+          </button>
+        </p>
+        <p class="metadata-value" id="trainingDate">2025-01-22</p>
+      </div>
+
+      <!-- Card for Accuracy -->
+      <div class="metadata-item card-style">
+        <p class="metadata-label">Accuracy
+          <button class="btn btn-link" id="accuracyInfoBtn" data-toggle="tooltip" title="The accuracy of the model, calculated as the ratio of correctly predicted instances.">
+            <i class="fas fa-info-circle"></i>
+          </button>
+        </p>
+        <p class="metadata-value" id="accuracy">0.835</p>
+      </div>
+
+      <!-- Card for ROC AUC -->
+      <div class="metadata-item card-style">
+        <p class="metadata-label">ROC AUC
+          <button class="btn btn-link" id="rocAucInfoBtn" data-toggle="tooltip" title="The ROC AUC score, indicating the performance of the model at distinguishing classes.">
+            <i class="fas fa-info-circle"></i>
+          </button>
+        </p>
+        <p class="metadata-value" id="rocAuc">0.91</p>
+      </div>
+
+      <!-- Card for Preprocessing -->
+      <div class="metadata-item card-style">
+        <p class="metadata-label">Preprocessing
+          <button class="btn btn-link" id="preprocessingInfoBtn" data-toggle="tooltip" title="The preprocessing steps applied to the dataset.">
+            <i class="fas fa-info-circle"></i>
+          </button>
+        </p>
+        <p class="metadata-value" id="preprocessing">StandardScaler applied to numerical columns, LabelEncoder applied to categorical columns</p>
+      </div>
+
+      <!-- Card for Training Time -->
+      <div class="metadata-item card-style">
+        <p class="metadata-label">Training Time
+          <button class="btn btn-link" id="trainingTimeInfoBtn" data-toggle="tooltip" title="The total time taken to train the model.">
+            <i class="fas fa-info-circle"></i>
+          </button>
+        </p>
+        <p class="metadata-value" id="trainingTime">1.53 seconds</p>
+      </div>
+
+      <!-- Card for Hardware Requirements -->
+      <div class="metadata-item card-style">
+        <p class="metadata-label">Hardware Requirements
+          <button class="btn btn-link" id="hardwareRequirementsInfoBtn" data-toggle="tooltip" title="The hardware required to run the model, including CPU and RAM.">
+            <i class="fas fa-info-circle"></i>
+          </button>
+        </p>
+        <p class="metadata-value" id="hardwareRequirements">CPU: Intel i7, RAM: 16 GB</p>
+      </div>
+
+      <!-- Card for Experiment Notes -->
+      <div class="metadata-item card-style">
+        <p class="metadata-label">Experiment Notes
+          <button class="btn btn-link" id="experimentNotesInfoBtn" data-toggle="tooltip" title="Additional notes about the experiment, such as any adjustments made during training.">
+            <i class="fas fa-info-circle"></i>
+          </button>
+        </p>
+        <p class="metadata-value" id="experimentNotes">Model trained with an updated dataset and improved hyperparameters</p>
+      </div>
+
+      <!-- Card for Model Version -->
+      <div class="metadata-item card-style">
+        <p class="metadata-label">Model Version
+          <button class="btn btn-link" id="modelVersionInfoBtn" data-toggle="tooltip" title="The version of the trained model.">
+            <i class="fas fa-info-circle"></i>
+          </button>
+        </p>
+        <p class="metadata-value" id="modelVersion">1.0.0</p>
+      </div>
+
+      <!-- Card for Dependencies -->
+      <div class="metadata-item card-style">
+        <p class="metadata-label">Dependencies
+          <button class="btn btn-link" id="dependenciesInfoBtn" data-toggle="tooltip" title="The dependencies and their versions required to run the model.">
+            <i class="fas fa-info-circle"></i>
+          </button>
+        </p>
+        <p class="metadata-value" id="dependencies">scikit-learn: 0.24.1, pandas: 1.2.1, numpy: 1.19.5</p>
+      </div>
     </div>
   </div>
 </div>
+
 
 <button class="btn-circle btn-sm"  id="openModalBtn" data-bs-target="#modalHelp">
   <span class="info-icon">?</span>
