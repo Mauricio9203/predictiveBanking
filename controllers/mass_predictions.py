@@ -2,7 +2,6 @@ from flask import Blueprint, request, jsonify, send_file
 import joblib
 import pandas as pd
 import tempfile
-import logging
 
 # Define the blueprint
 bp = Blueprint('mass_predictions', __name__)
@@ -40,7 +39,7 @@ def metodosPost():
         if missing_columns:
             return jsonify({"error": f"Missing columns in the file: {', '.join(missing_columns)}"}), 400
 
-        # Codificar las columnas categóricas usando los codificadores guardados
+        # Codificar las columnas categóricas usando los codificadores guardados solo si es necesario
         for column, le in label_encoders.items():
             if column in df.columns:
                 try:
@@ -48,32 +47,32 @@ def metodosPost():
                 except Exception as e:
                     return jsonify({"error": f"Error encoding column {column}: {str(e)}"}), 400
 
-        # Escalar las columnas numéricas
+        # Escalar solo las columnas numéricas necesarias para la predicción
         num_columns = ['balance', 'day', 'campaign', 'pdays', 'previous', 'age', 'duration']
-        for col in num_columns:
-            if col not in df.columns:
-                return jsonify({"error": f"Missing numerical column: {col}"}), 400
-        
-        try:
-            df[num_columns] = scaler.transform(df[num_columns])
-        except Exception as e:
-            return jsonify({"error": f"Error scaling numerical columns: {str(e)}"}), 400
+        df_scaled = df.copy()  # Crear una copia para aplicar el escalado sin afectar el original
+        df_scaled[num_columns] = scaler.transform(df[num_columns])
 
-        # Realizar la predicción para cada fila de datos y obtener las probabilidades
+        # Realizar la predicción para cada fila de datos con los datos escalados
         try:
-            probabilidades = model_rf.predict_proba(df[columns_usadas])
+            probabilidades = model_rf.predict_proba(df_scaled[columns_usadas])
         except Exception as e:
             return jsonify({"error": f"Error predicting with the model: {str(e)}"}), 400
 
-        # Agregar las columnas de probabilidad y predicción
+        # Agregar las columnas de probabilidad y predicción sin alterar las existentes
         df['prob_yes'] = [prob[1] for prob in probabilidades]  # Probabilidad de "yes"
         df['prob_no'] = [prob[0] for prob in probabilidades]   # Probabilidad de "no"
         df['deposit'] = df['prob_yes'].apply(lambda x: 'yes' if x > 0.5 else 'no')  # Predicción final
+
+        # Restaurar las columnas categóricas a sus valores originales (si las transformamos previamente)
+        for column, le in label_encoders.items():
+            if column in df.columns:
+                df[column] = le.inverse_transform(df[column])
 
         # Crear un archivo temporal para guardar el resultado
         with tempfile.NamedTemporaryFile(delete=False, suffix='.xlsx') as temp_file:
             output_file = temp_file.name
             try:
+                # Guardar el DataFrame sin cambiar el formato de las columnas originales
                 df.to_excel(output_file, index=False)
             except Exception as e:
                 return jsonify({"error": f"Error exporting to Excel: {str(e)}"}), 500
