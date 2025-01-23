@@ -297,3 +297,18 @@ i {
   animation: slideInUp 0.8s ease-out;
   animation-fill-mode: forwards;
 }
+
+.btn:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.fas.fa-upload, .fas.fa-download {
+  transition: color 0.3s ease-in-out;
+}
+
+.btn:hover .fas {
+  color: #fff;
+}
+

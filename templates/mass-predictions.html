@@ -1,151 +1,300 @@
-{% extends './base.html' %}
-
-{% block title %} Deposit Prediction {% endblock %}
-
+{% extends './base.html' %} {% block title %} Deposit Prediction {% endblock %}
 {% block body %}
 
-<div class="container py-5" id="depositPredictionPage" style="max-width: 600px;">
+<div class="container-fluid py-5" id="depositPredictionPage">
+  <!-- Main Header -->
+  <div class="text-center mb-4">
+    <h2 class="fw-bold" style="font-size: 2rem; color: #4a4eae">
+      Predict Fixed-Term Deposit Approvals
+    </h2>
+    <p class="text-muted" style="font-size: 1rem">
+      Upload customer data to predict deposit approvals using AI.
+    </p>
+  </div>
 
-    <!-- Main Header -->
-    <div class="text-center mb-4">
-        <h2 class="fw-bold" style="font-size: 2rem; color: #4A4EAE;">
-            Predict Fixed-Term Deposit Approvals
-        </h2>
-        <p class="text-muted" style="font-size: 1rem;">
-            Upload customer data to predict deposit approvals using AI.
-        </p>
+  <!-- Instructions Section -->
+  <div class="card mb-3 shadow-sm" style="border-radius: 12px">
+    <div class="card-body">
+      <h5 class="card-title text-primary fw-bold" style="font-size: 1.1rem">
+        How to Use
+      </h5>
+      <ol class="list-group list-group-numbered" style="font-size: 0.9rem">
+        <li class="list-group-item">
+          Download the
+          <a href="static/examples/bank_excel.xlsx" style="color: #c1a400"
+            >sample template</a
+          >.
+        </li>
+        <li class="list-group-item">Fill in your customer data.</li>
+        <li class="list-group-item">Upload the file below.</li>
+        <li class="list-group-item">
+          Click <strong>Start Prediction</strong>.
+        </li>
+        <li class="list-group-item">Download the results once ready.</li>
+      </ol>
     </div>
+  </div>
 
-    <!-- Instructions Section -->
-    <div class="card mb-3 shadow-sm" style="border-radius: 12px;">
-        <div class="card-body">
-            <h5 class="card-title text-primary fw-bold" style="font-size: 1.1rem;">How to Use</h5>
-            <ol class="list-group list-group-numbered" style="font-size: 0.9rem;">
-                <li class="list-group-item">Download the <a href="static/examples/bank_excel.xlsx" style="color: #c1a400;">sample template</a>.</li>
-                <li class="list-group-item">Fill in your customer data.</li>
-                <li class="list-group-item">Upload the file below.</li>
-                <li class="list-group-item">Click <strong>Start Prediction</strong>.</li>
-                <li class="list-group-item">Download the results once ready.</li>
-            </ol>
-        </div>
-    </div>
-
-<!-- Sample Data Section -->
-<div class="row mt-5">
+  <!-- Sample Data Section -->
+  <div class="row mt-5">
     <div class="col-12">
-        <h6 class="fw-bold text-center" style="color: #4A4EAE;">Sample Data Format</h6>
-        <div class="table-responsive ">
-            <table class="table table-bordered table-striped table-hover shadow-sm text-center" style="background: #F7F7FF; color: #4A4EAE;">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Job</th>
-                        <th>Marital</th>
-                        <th>Education</th>
-                        <th>Default</th>
-                        <th>Balance</th>
-                        <th>Housing</th>
-                        <th>Loan</th>
-                        <th>Contact</th>
-                        <th>Day</th>
-                        <th>Month</th>
-                        <th>Duration</th>
-                        <th>Campaign</th>
-                        <th>Pdays</th>
-                        <th>Previous</th>
-                        <th>Poutcome</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>admin.</td>
-                        <td>married</td>
-                        <td>secondary</td>
-                        <td>no</td>
-                        <td>2343</td>
-                        <td>yes</td>
-                        <td>no</td>
-                        <td>unknown</td>
-                        <td>5</td>
-                        <td>may</td>
-                        <td>1042</td>
-                        <td>1</td>
-                        <td>-1</td>
-                        <td>0</td>
-                        <td>unknown</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <p class="text-muted text-center mt-3" style="font-size: 0.9rem;">
-            Ensure your data follows this format for accurate predictions.
-        </p>
+      <h6 class="fw-bold text-center" style="color: #4a4eae">
+        Sample Data Format
+      </h6>
+      <div class="table-responsive">
+        <table
+          class="table table-bordered table-striped table-hover shadow-sm text-center"
+          style="background: #f7f7ff; color: #4a4eae"
+        >
+          <thead class="table-dark">
+            <tr>
+              <th>Job</th>
+              <th>Marital</th>
+              <th>Education</th>
+              <th>Default</th>
+              <th>Balance</th>
+              <th>Housing</th>
+              <th>Loan</th>
+              <th>Contact</th>
+              <th>Day</th>
+              <th>Month</th>
+              <th>Duration</th>
+              <th>Campaign</th>
+              <th>Pdays</th>
+              <th>Previous</th>
+              <th>Poutcome</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>admin.</td>
+              <td>married</td>
+              <td>secondary</td>
+              <td>no</td>
+              <td>2343</td>
+              <td>yes</td>
+              <td>no</td>
+              <td>unknown</td>
+              <td>5</td>
+              <td>may</td>
+              <td>1042</td>
+              <td>1</td>
+              <td>-1</td>
+              <td>0</td>
+              <td>unknown</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-muted text-center mt-3" style="font-size: 0.9rem">
+        Ensure your data follows this format for accurate predictions.
+      </p>
     </div>
-</div>
+  </div>
 
-
-    <!-- Upload Section -->
-    <div class="card mb-3 shadow-sm text-center" style="border-radius: 12px;">
-        <div class="card-body">
-            <h5 class="card-title fw-bold" style="color: #4A4EAE; font-size: 1.3rem;">Upload Customer Data</h5>
-            <p class="text-muted" style="font-size: 1rem;">Upload your Excel file in the specified format.</p>
-            <div class="my-3">
-                <button id="uploadButton" class="btn btn-outline-primary btn-lg shadow-sm">
-                    <i class="fas fa-upload"></i> Choose File
-                </button>
-                <input type="file" id="fileInput" style="display: none;" accept=".xlsx, .xls">
-                <small id="fileName" class="text-muted d-block mt-2" style="font-size: 0.9rem;"></small>
-            </div>
-            <div class="mt-4">
-                <button id="submitFile" class="btn btn-warning btn-lg shadow-sm">
-                    <i id="loadingIcon" class="fa fa-spinner fa-spin" style="display: none;"></i> Start Prediction
-                </button>
-                <button id="downloadButton" class="btn btn-success btn-lg shadow-sm" style="display: none;">
-                    <i class="fas fa-download"></i> Download Result
-                </button>
-            </div>
-        </div>
+<!-- Upload Section -->
+<div class="card mb-3 shadow-sm text-center" style="border-radius: 12px">
+    <div class="card-body">
+      <h5 class="card-title fw-bold" style="color: #4a4eae; font-size: 1.3rem">
+        Upload Customer Data
+      </h5>
+      <p class="text-muted" style="font-size: 1rem">
+        Upload your Excel file in the specified format.
+      </p>
+      <div class="my-3">
+        <button
+          id="uploadButton"
+          class="btn"
+          style="background: #4a90e2; color: white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)"
+        >
+          <i class="fas fa-upload"></i> Choose File
+        </button>
+        <input
+          type="file"
+          id="fileInput"
+          style="display: none"
+          accept=".xlsx, .xls"
+        />
+        <small
+          id="fileName"
+          class="text-muted d-block mt-2"
+          style="font-size: 0.9rem"
+        ></small>
+      </div>
+      <div class="mt-4">
+        <button id="submitFile" class="btn mt-2" style="background: #8e44ad; color: white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)">
+          <i
+            id="loadingIcon"
+            class="fa fa-spinner fa-spin"
+            style="display: none"
+          ></i>
+          Start Prediction
+        </button>
+        <button
+          id="downloadButton"
+          class="btn text-dark m-2"
+          style="background: #e7c101; color: white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); display: none"
+        >
+          <i class="fas fa-download"></i> Download Result
+        </button>
+      </div>
     </div>
+  </div>
+  
 
-
-    <!-- Data Summary Section -->
-    <div class="card mb-3 shadow-sm" style="border-radius: 12px;">
-        <div class="card-body">
-            <h5 class="card-title text-primary fw-bold" style="font-size: 1.1rem;">Data Summary</h5>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item d-flex justify-content-between">
-                    <span>Total Records:</span>
-                    <strong id="totalRecords">0</strong>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                    <span>Average Age:</span>
-                    <strong id="averageAge">0</strong>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                    <span>Most Common Job:</span>
-                    <strong id="commonJob">N/A</strong>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                    <span>Most Common Marital Status:</span>
-                    <strong id="commonMarital">N/A</strong>
-                </li>
+  <div id="dataSummaryInfo" style="display: none">
+    <!-- Data Summary and Donut Chart Section (Same Row) -->
+    <div class="row">
+      <!-- Data Summary Card -->
+      <!-- Compact Data Summary Card -->
+      <div class="col-12 col-md-6 mb-3">
+        <div
+          class="card shadow-sm"
+          style="border-radius: 8px; height: 400px; font-size: 0.9rem"
+        >
+          <div
+            class="card-body p-2 d-flex flex-column justify-content-between"
+            style="height: 100%"
+          >
+            <h5
+              class="card-title text-center fw-bold"
+              style="color: #4a4eae; margin-top: 10px"
+            >
+              Average Balance by Marital Status
+            </h5>
+            <ul
+              class="list-group list-group-flush"
+              style="overflow-y: auto; height: 85%"
+            >
+              <li
+                class="list-group-item d-flex justify-content-between px-2 py-1"
+              >
+                <span>Total Records:</span><strong id="totalRecords">0</strong>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between px-2 py-1"
+              >
+                <span>Average Age:</span><strong id="averageAge">0</strong>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between px-2 py-1"
+              >
+                <span>Highest Balance:</span><strong id="maxBalance">0</strong>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between px-2 py-1"
+              >
+                <span>Lowest Balance:</span><strong id="minBalance">0</strong>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between px-2 py-1"
+              >
+                <span>Std Dev Balance:</span
+                ><strong id="stdDevBalance">0</strong>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between px-2 py-1"
+              >
+                <span>Most Common Job:</span><strong id="commonJob">N/A</strong>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between px-2 py-1"
+              >
+                <span>Common Marital:</span
+                ><strong id="commonMarital">N/A</strong>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between px-2 py-1"
+              >
+                <span>Missing Data:</span><strong id="missingData">0</strong>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between px-2 py-1"
+              >
+                <span># Columns:</span><strong id="numColumns">0</strong>
+              </li>
             </ul>
+          </div>
         </div>
+      </div>
+
+      <!-- Donut Chart Card -->
+      <div class="col-12 col-md-6 mb-4">
+        <div class="card shadow-sm" style="height: 400px">
+          <div
+            class="card-body d-flex flex-column justify-content-center align-items-center"
+            style="height: 100%; padding-left: 20px; padding-right: 20px"
+          >
+            <!-- Título con el estilo proporcionado -->
+            <h5 class="card-title text-center fw-bold" style="color: #4a4eae">
+              Deposit Distribution
+            </h5>
+            <!-- Contenedor para el gráfico -->
+            <div
+              class="chart-container text-center mb-4"
+              style="
+                width: 100%;
+                height: 100%;
+                padding-left: 20px;
+                padding-right: 20px;
+              "
+            >
+              <canvas
+                id="depositDistributionChart"
+                width="300"
+                height="300"
+                style="max-width: 100%; max-height: 100%"
+              ></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Feedback Messages -->
-    <div class="text-center mt-3">
-        <div id="progressIndicator" style="display: none;">
-            <p class="text-muted">Processing your data...</p>
-            <div class="spinner-border text-primary" role="status"></div>
+    <div class="row">
+      <!-- Average Balance by Job Chart -->
+      <div class="col-12 col-md-6 mb-4">
+        <div class="card shadow-sm" style="height: 400px">
+          <h5
+            class="card-title text-center fw-bold"
+            style="color: #4a4eae; margin-top: 15px"
+          >
+            Average Balance by Job
+          </h5>
+          <div
+            class="card-body d-flex justify-content-center align-items-center"
+            style="height: 100%; padding: 15px"
+          >
+            <canvas
+              id="avgBalanceJobChart"
+              style="width: 100%; height: 100%"
+            ></canvas>
+          </div>
         </div>
-        <div id="successMessage" class="text-success fw-bold" style="display: none;">
-            File processed successfully! Download your results below.
-        </div>
-        <div id="errorMessage" class="text-danger fw-bold" style="display: none;">
-            Error processing the file. Please try again.
-        </div>
-    </div>
+      </div>
 
+      <!-- Average Balance by Marital Status Chart -->
+      <div class="col-12 col-md-6 mb-4">
+        <div class="card shadow-sm" style="height: 400px">
+          <h5
+            class="card-title text-center fw-bold"
+            style="color: #4a4eae; margin-top: 15px"
+          >
+            Average Balance by Marital Status
+          </h5>
+          <div
+            class="card-body d-flex justify-content-center align-items-center"
+            style="height: 100%; padding: 15px"
+          >
+            <canvas
+              id="avgBalanceMaritalChart"
+              style="width: 100%; height: 100%"
+            ></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script src="{{ url_for('static', filename='js/mass-predictions.js') }}"></script>
