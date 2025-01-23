@@ -42,14 +42,11 @@ def metodosPost():
         # Codificar las columnas categóricas usando los codificadores guardados solo si es necesario
         for column, le in label_encoders.items():
             if column in df.columns:
-                try:
-                    df[column] = le.transform(df[column])
-                except Exception as e:
-                    return jsonify({"error": f"Error encoding column {column}: {str(e)}"}), 400
+                df[column] = le.transform(df[column])
 
         # Escalar solo las columnas numéricas necesarias para la predicción
         num_columns = ['balance', 'day', 'campaign', 'pdays', 'previous', 'age', 'duration']
-        df_scaled = df.copy()  # Crear una copia para aplicar el escalado sin afectar el original
+        df_scaled = df.copy()
         df_scaled[num_columns] = scaler.transform(df[num_columns])
 
         # Realizar la predicción para cada fila de datos con los datos escalados
@@ -72,8 +69,45 @@ def metodosPost():
         with tempfile.NamedTemporaryFile(delete=False, suffix='.xlsx') as temp_file:
             output_file = temp_file.name
             try:
-                # Guardar el DataFrame sin cambiar el formato de las columnas originales
-                df.to_excel(output_file, index=False)
+                # Guardar el DataFrame en la primera hoja con el nombre "results"
+                with pd.ExcelWriter(output_file, engine='openpyxl') as writer:
+                    df.to_excel(writer, index=False, sheet_name='results')
+
+                    # Generar el resumen en formato vertical para la segunda hoja "Summary"
+                    summary = pd.DataFrame({
+                        'Metric': ['Total Records', 'Average Age', 'Highest Balance', 'Lowest Balance',
+                                   'Standard Deviation of Balance', 'Most Common Job',
+                                   'Most Common Marital Status', 'Missing Data', 'Number of Columns'],
+                        'Value': [
+                            len(df),
+                            df['age'].mean() if 'age' in df.columns else 0,
+                            df['balance'].max() if 'balance' in df.columns else 0,
+                            df['balance'].min() if 'balance' in df.columns else 0,
+                            df['balance'].std() if 'balance' in df.columns else 0,
+                            df['job'].mode()[0] if 'job' in df.columns else 'N/A',
+                            df['marital'].mode()[0] if 'marital' in df.columns else 'N/A',
+                            df.isnull().sum().sum(),
+                            len(df.columns)
+                        ]
+                    })
+                    summary.to_excel(writer, index=False, sheet_name='Summary')
+
+                    # Guardar las métricas en hojas separadas
+                    # Deposit Distribution
+                    deposit_dist = df['deposit'].value_counts().reset_index()
+                    deposit_dist.columns = ['Deposit', 'Count']
+                    deposit_dist.to_excel(writer, index=False, sheet_name='Deposit Distribution')
+
+                    # Average Balance by Job
+                    avg_balance_job = df.groupby('job')['balance'].mean().reset_index()
+                    avg_balance_job.columns = ['Job', 'Average Balance']
+                    avg_balance_job.to_excel(writer, index=False, sheet_name='Average Balance by Job')
+
+                    # Average Balance by Marital Status
+                    avg_balance_marital = df.groupby('marital')['balance'].mean().reset_index()
+                    avg_balance_marital.columns = ['Marital Status', 'Average Balance']
+                    avg_balance_marital.to_excel(writer, index=False, sheet_name='Average Balance by Marital Status')
+
             except Exception as e:
                 return jsonify({"error": f"Error exporting to Excel: {str(e)}"}), 500
 
